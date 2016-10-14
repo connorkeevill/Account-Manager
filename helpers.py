@@ -1,3 +1,2 @@
+#CK
 
-def getInput():
-    print('hello')

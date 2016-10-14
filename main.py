@@ -1,4 +1,7 @@
-import helpers
+#CK
+from Password import Password
 
+word = input('Please enter the password you want to encrypt: ')
+password = Password(1, word)
 
-helpers.getInput()
+print(password.cases)
