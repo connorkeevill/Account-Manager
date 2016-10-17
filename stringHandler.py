@@ -1,9 +1,8 @@
 #CK
 
-
 # | encrypt()
 # |----------------------------------------------------------------------
-# | Returns an encrypted version of the plainText string that has been
+# | Returns an encrypted version of the plaintext string that has been
 # | encrypted with the keyword parameter using the Vigenère cipher.
 # | ----------------------------------------------------------
 def encrypt(plainText, keyword):
@@ -23,6 +22,31 @@ def encrypt(plainText, keyword):
     newString = getAlphabeticValues(newNums)
     encrypted = ''.join(newString)
     return encrypted
+
+# | decrypt()
+# |---------------------------------------------------------------------
+# | Returns the decrypted version of the encrypted string passed as a
+# | parameter, assuming the correct keyword is provided, otherwise
+# | the output won't be what the user expected. The string also
+# | only works if it was encrypted with the Vigenère cipher.
+# |-----------------------------------------------------
+def decrypt(encrypted, keyword):
+    encryptedNums = getNumericalValues(encrypted)
+    keywordNums = getNumericalValues(keyword)
+    newNums = []
+
+    for letter in range(len(encryptedNums)):
+        encryptedLet = encryptedNums[letter]
+        keywordLet = keywordNums[letter % len(keyword)]
+
+        newLet = encryptedLet - keywordLet
+        newLet = putInRange(newLet)
+
+        newNums.append(newLet)
+
+    newString = getAlphabeticValues(newNums)
+    decrypted = ''.join(newString)
+    return decrypted
 
 # | getNumericalValues()
 # |-----------------------------------------------------------------------------------------------

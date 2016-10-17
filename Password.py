@@ -43,3 +43,11 @@ class Password:
     def encrypt(self, keyword):
         self.encrypted = stringHandler.encrypt(self.password, keyword)
         print(self.encrypted)
+
+    # | decrypt()
+    # |--------------------------------------------------------------------------------------
+    # | Calls the decrypt method from stringHandler on the password's encrypted attribute.
+    # |--------------------------------------------------------------------------------
+    def decrypt(self, keyword):
+        self.password = stringHandler.decrypt(self.encrypted, keyword)
+        print(self.password)
