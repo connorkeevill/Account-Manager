@@ -1,8 +1,16 @@
 #CK
 
 import unittest
-import fileHandler
+from fileHandler import fileHandler
 
 class fileIOTests(unittest.TestCase):
 
-    def test_open_file_works(self):
+    def test_file_writing_works(self):
+        testFile = fileHandler('test.txt')
+        testFile.overWrite('Hi there.')
+
+        file = open('test.txt', 'r')
+        self.assertEqual(file.read(), 'Hi there.')
+
+if __name__ == '__main__':
+    unittest.main()
