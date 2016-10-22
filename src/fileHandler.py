@@ -27,6 +27,7 @@ class fileHandler():
 
     def addWrite(self, message):
         self.file = open(self.fileName, 'a')
+        self.write(message)
 
     def overWrite(self, message):
         self.file = open(self.fileName, 'w')
