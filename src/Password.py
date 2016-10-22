@@ -12,13 +12,13 @@ import stringHandler
 # | 0 means either a lowercase character or a special character; anything not a letter.
 # |--------------------------------------------------------------------------------
 class Password:
-    def __init__(self, known, text, cases = None):
+    def __init__(self, known, name, cases = None):
         if known:
-            self.password = text
+            self.password = name
             self.encrypted = None
-            self.cases = self.findCases(text)
+            self.cases = self.findCases(name)
         else:
-            self.encrypted = text
+            self.encrypted = name
             self.password = None
             self.cases = cases
 

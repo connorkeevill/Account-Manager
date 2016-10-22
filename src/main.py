@@ -1,10 +1,10 @@
 #CK
 
 from Password import Password
+from fileHandler import fileHandler
 
-word = input('Please enter the password you want to encrypt: ')
-keyword = input('Please enter the keyword to use for encryption: ')
+word = input('Enter your password: ')
 password = Password(1, word)
-
-password.encrypt(keyword)
-password.decrypt(keyword)
+file = fileHandler()
+password.encrypt('key')
+file.addWrite(password.encrypted + "\n")
