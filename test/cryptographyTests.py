@@ -1,8 +1,7 @@
 #CK
+
 import unittest
-
 from stringHandler import encrypt, decrypt
-
 
 class cryptograpyTest(unittest.TestCase):
 
@@ -27,7 +26,7 @@ class cryptograpyTest(unittest.TestCase):
     def test_compound_encryption_with_cases(self):
         self.assertEqual(encrypt('CoMpUtInG', 'kEy'), '06H]zo65B')
 
-    def test_compound_decyrption_with_cases(self):
+    def test_compound_decryption_with_cases(self):
         self.assertEqual(decrypt('06H]zo65B', 'kEy'), 'CoMpUtInG')
 
     def test_encryption_can_loop_alphabet(self):

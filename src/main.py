@@ -1,10 +1,10 @@
 #CK
 
-from Password import Password
+from Account import Account
 from fileHandler import fileHandler
 
 word = input('Enter your password: ')
-password = Password(1, word)
+account = Account(1, word)
 file = fileHandler()
-password.encrypt('key')
-file.addWrite(password.encrypted + "\n")
+account.encrypt('key')
+file.addWrite(account.encrypted + "\n")

@@ -5,7 +5,7 @@ from fileHandler import fileHandler
 
 class fileIOTests(unittest.TestCase):
 
-    def test_file_writing_works(self):
+    def test_file_overWriting_works(self):
         testFile = fileHandler('test.txt')
         testFile.overWrite('Hi there.')
 
