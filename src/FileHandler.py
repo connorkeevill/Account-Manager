@@ -1,5 +1,7 @@
 #CK
 
+from Account import Account
+
 # | fileHandler()
 # |--------------------------------------------------------------------------------------
 # | Object to handle any file IO. This is created as a wrapper for Python's file object
@@ -11,7 +13,7 @@
 # | without having to worry about closing and reopening the file
 # | in a different mode, making it easier to interact with it.
 # |-------------------------------------------------------
-class fileHandler():
+class FileHandler():
     def __init__(self, fileName=None):
 
         if fileName == None:
@@ -20,6 +22,7 @@ class fileHandler():
             self.fileName = fileName
 
         self.file = None
+        self.accounts = self.getAccounts()
 
     # | getFileName()
     # |-----------------------------------------------------
@@ -42,6 +45,37 @@ class fileHandler():
                 print('Make sure the file you\'re attempting to open exists and that you have the correct file path.')
         return name
 
+    # | getAccounts()
+    # |-----------------------------------------------------
+    # | Returns a list contain Account() objects that have
+    # | been created using details fromm a test file.
+    # |-----------------------------------------
+    def getAccounts(self):
+        self.file = open(self.fileName, 'r')
+        accounts = []
+
+        for line in self.file:
+            details = line.split(', ')
+            account = Account(0, details[0], details[1], details[2][:-1])
+            accounts.append(account)
+
+        self.file.close()
+        return accounts
+
+    # | addAccount()
+    # |------------------------------------------------------------
+    # | Writes a new account entry to the file by extracting data
+    # | from an Account() object and writing it to the file.
+    # |-------------------------------------------------
+    def addAccount(self, account):
+        self.file = open(self.fileName, 'a')
+        details = [account.type, account.username, account.encrypted]
+        line = ", ".join(details)
+
+        self.file.write(line + '\n')
+        self.file.close()
+
+"""
     # | append()
     # |-----------------------------------------------
     # | Assumes there is no file open and opens the
@@ -71,3 +105,5 @@ class fileHandler():
     def write(self, message):
         self.file.write(message)
         self.file.close()
+
+"""
