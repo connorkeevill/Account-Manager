@@ -12,3 +12,8 @@ account = Account(1, word)
 file = fileHandler()
 account.encrypt('key')
 file.append(account.encrypted + "\n")
+
+
+# | WIP
+# | Continue migration from password to account object
+
