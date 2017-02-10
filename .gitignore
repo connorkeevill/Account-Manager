@@ -41,5 +41,5 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
-#CK added
-/__pycache__/*
+#CK Files
+src/__pycache__/*
