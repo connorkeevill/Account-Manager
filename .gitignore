@@ -43,3 +43,4 @@ fabric.properties
 
 #CK Files
 src/__pycache__/*
+.idea/
