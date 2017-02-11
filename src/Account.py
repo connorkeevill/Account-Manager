@@ -9,8 +9,9 @@ import stringHandler
 # | encrypting and decrypting the password, depending on if the account is new or being re-read.
 # |-----------------------------------------------------------------------------------------
 class Account:
-    def __init__(self, new, type, username, password):
+    def __init__(self, new, type, owner, username, password):
         self.type = type
+        self.owner = owner
         self.username = username
 
         if new:

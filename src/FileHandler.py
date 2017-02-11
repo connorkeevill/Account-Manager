@@ -56,7 +56,7 @@ class FileHandler():
 
         for line in self.file:
             details = line.split(', ')
-            account = Account(0, details[0], details[1], details[2][:-1])
+            account = Account(0, details[0], details[1], details[2], details[3][:-1])
             accounts.append(account)
 
         self.file.close()
