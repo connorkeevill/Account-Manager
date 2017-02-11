@@ -2,9 +2,15 @@
 
 from Account import Account
 from FileHandler import FileHandler
+import helpers
 
-file = FileHandler()
+file = FileHandler('accounts.txt')
 
+for account in file.accounts:
+    helpers.displayAccountDetails(account.type, account.owner, account. username)
+
+
+"""
 decision = input('Do you want to [V]iew existing accounts or [A]dd a new one? ').upper()
 
 if decision == 'V':
@@ -17,3 +23,4 @@ elif decision == 'A':
     file.addAccount(account)
 else:
     print('Invalid choice, exiting')
+"""
