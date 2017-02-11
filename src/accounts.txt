@@ -1,3 +1,4 @@
-account1, username1, dpnqvujoh
-account2, username2, ifmmp
-account3, username3, qbttxpse
+Google Account, Joe Blogs, joeblogs@gmail.com, dpnqvujoh
+Facebook, Joe Blogs, joeblogs@gmail.com, dpnqvujoh
+Github, Joe Blogs, joeblogs, qbttxpse
+Instagram, James Smith, jamessmith, qbttxpse
