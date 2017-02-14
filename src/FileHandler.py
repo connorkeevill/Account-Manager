@@ -69,7 +69,7 @@ class FileHandler():
     # |-------------------------------------------------
     def addAccount(self, account):
         self.file = open(self.fileName, 'a')
-        details = [account.type, account.username, account.encrypted]
+        details = [account.type, account.owner, account.username, account.encrypted]
         line = ", ".join(details)
 
         self.file.write(line + '\n')
