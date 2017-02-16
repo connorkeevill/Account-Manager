@@ -29,7 +29,6 @@ class Account:
     # |-------------------------------------------------------------------------------
     def encrypt(self, keyword):
         self.encrypted = stringHandler.encrypt(self.password, keyword)
-        print(self.encrypted)
 
     # | decrypt()
     # |--------------------------------------------------------------------------------------
@@ -37,4 +36,3 @@ class Account:
     # |--------------------------------------------------------------------------------
     def decrypt(self, keyword):
         self.password = stringHandler.decrypt(self.encrypted, keyword)
-        print(self.password)
