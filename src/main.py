@@ -16,6 +16,7 @@ while True:
     choice = helpers.inputOption(templates.mainMenu(), ['A', 'V'])
 
     if choice == 'V':
+        file.getAccounts()
         for account in file.accounts:
             templates.accountDetails(account.type, account.owner, account. username)
 

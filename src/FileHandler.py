@@ -22,7 +22,7 @@ class FileHandler():
             self.fileName = fileName
 
         self.file = None
-        self.accounts = self.getAccounts()
+        self.accounts = None
 
     # | getFileName()
     # |-----------------------------------------------------
@@ -60,7 +60,7 @@ class FileHandler():
             accounts.append(account)
 
         self.file.close()
-        return accounts
+        self.accounts = accounts
 
     # | addAccount()
     # |------------------------------------------------------------
