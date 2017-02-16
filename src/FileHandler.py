@@ -74,36 +74,3 @@ class FileHandler():
 
         self.file.write(line + '\n')
         self.file.close()
-
-"""
-    # | append()
-    # |-----------------------------------------------
-    # | Assumes there is no file open and opens the
-    # | file in 'a' mode, then calls the class'
-    # | write method with the message param.
-    # |---------------------------------
-    def append(self, message):
-        self.file = open(self.fileName, 'a')
-        self.write(message)
-
-    # | overWrite()
-    # |-----------------------------------------------
-    # | Assumes there is no file open and opens the
-    # | file in 'w' mode, then calls the class'
-    # | write method with the message param.
-    # |---------------------------------
-    def overWrite(self, message):
-        self.file = open(self.fileName, 'w')
-        self.write(message)
-
-    # | write()
-    # |-----------------------------------------------
-    # | Assumes there is a file open, and calls the
-    # | file's write() method using the message
-    # | parameter, before closing the file.
-    # |--------------------------------
-    def write(self, message):
-        self.file.write(message)
-        self.file.close()
-
-"""
