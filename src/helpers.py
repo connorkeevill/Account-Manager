@@ -9,14 +9,20 @@
 # | recognised when compared to the user's inputted choice.
 # |----------------------------------------------------
 def inputOption(prompt, options):
-    option = input(prompt)
-    # |------------------------------------------------------------------------
-    # | As the options[] parameter is going to contain uppercase letters, the
-    # | option needs to be made uppercase to see if it's on of the options
-    # |-----------------------------------------------------------------
-    option = option.upper()
+    option = getOption(prompt)
     while option not in options:
         print('Make sure your choice is one of: ', ', '.join(options))
-        option = input(prompt)
+        option = getOption(prompt)
+
+    return option
+
+# | getOption()
+# |-------------------------------------------------------------------
+# | Gets the option variable needed for inputOption(), to get it in
+# | uppercase and strip the whitespace to get a single character.
+# |----------------------------------------------------------
+def getOption(prompt):
+    option = input(prompt).upper()
+    option.replace(" ", "")
 
     return option
