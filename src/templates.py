@@ -1,5 +1,15 @@
 #CK
 
+# | Note:
+# |-------------------------------------------------------------------------------
+# | The convention for the templates in this file will be that they are methods
+# | which return a set message, which will then be printed. However when the
+# | method takes parameters to make more 'personalised' message, then it
+# | will be printed directly from the method as returning it causes a
+# | problem with the messages formatting. Printing it fixes this.
+# |------------------------------------------------------------
+
+
 # | greeting()
 # |-----------------------------------------------------------
 # | Returns message to be shown on the program being opened.
