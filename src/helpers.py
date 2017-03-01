@@ -1,5 +1,8 @@
 #CK
 
+import templates
+import time
+
 # | inputOption()
 # |--------------------------------------------------------------------------
 # | Returns a character based on the input from the prompt if it is in the
@@ -26,3 +29,11 @@ def getOption(prompt):
     option.replace(" ", "")
 
     return option
+
+def printAccounts(accounts):
+    limit = 5
+
+    for account in accounts:
+        templates.accountDetails(account.type, account.owner, account.username)
+        time.sleep(0.1)
+

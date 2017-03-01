@@ -12,13 +12,11 @@ print(templates.greeting())
 # | Main loop for the program while running.
 # |--------------------------------------
 while True:
-    file.getAccounts()
     choice = helpers.inputOption(templates.mainMenu(), ['A', 'V'])
 
     if choice == 'V':
         file.getAccounts()
-        for account in file.accounts:
-            templates.accountDetails(account.type, account.owner, account. username)
+        helpers.printAccounts(file.accounts)
 
     elif choice == 'A':
         # |------------------------------------------
