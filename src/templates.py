@@ -6,8 +6,9 @@
 # | which return a set message, which will then be printed. However when the
 # | method takes parameters to make more 'personalised' message, then it
 # | will be printed directly from the method as returning it causes a
-# | problem with the messages formatting. Printing it fixes this.
-# |------------------------------------------------------------
+# | problem with the messages formatting. Printing it fixes this,
+# | preventing any kind of excessively complex implementation.
+# |-------------------------------------------------------
 
 
 # | greeting()
@@ -32,8 +33,8 @@ def mainMenu():
 # |---------------------------------------------------------------------------------
 # | Template to show structured layout of 'non-confidential' details of an account.
 # |-----------------------------------------------------------------------------
-def accountDetails(type, owner, username):
-    print('===================================================================\n',
+def accountDetails(accountNum, type, owner, username):
+    print('=', accountNum, '===============================================================\n',
           type,'-', owner, '\n',
           '-----------------------------------------------------------------\n',
           'Username:', username, '\n'
