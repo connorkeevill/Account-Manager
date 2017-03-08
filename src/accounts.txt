@@ -1,4 +1,6 @@
 Google Account, Joe Blogs, joeblogs@gmail.com, dpnqvujoh
 Facebook, Joe Blogs, joeblogs@gmail.com, dpnqvujoh
 Github, Joe Blogs, joeblogs, qbttxpse
+Github, James Smith, jamessmiht, DPNQVUJOH
 Instagram, James Smith, jamessmith, qbttxpse
+Instagram, Joe Blogs, joeblogs, dpnqvujoh
