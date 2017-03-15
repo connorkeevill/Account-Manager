@@ -49,7 +49,6 @@ def printAccounts(accounts):
         templates.accountDetails(index, accounts[account].type, accounts[account].owner, accounts[account].username)
         time.sleep(0.1)
 
-
 # | selectAccount()
 # |-----------------------------------------
 # | Gets the index of the account that the
@@ -68,7 +67,6 @@ def selectAccount(accounts):
 # | parameter. Bases list on the range of the
 # | accounts which are in the opened file.
 # |------------------------------------
-
 def getNumberRange(accounts):
     numbers = list(range(len(accounts) + 1))
     # |-------------------------------------------------------
