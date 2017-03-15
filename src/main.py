@@ -17,6 +17,7 @@ while True:
     if choice == 'V':
         file.getAccounts()
         helpers.printAccounts(file.accounts)
+        helpers.selectAccount(file.accounts)
 
     elif choice == 'A':
         # |------------------------------------------

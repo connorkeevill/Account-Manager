@@ -30,10 +30,57 @@ def getOption(prompt):
 
     return option
 
+# | printAccounts()
+# |----------------------------------------------------------------
+# | Prints all the accoutns when the user selects the 'V' option.
+# | Uses the template in the templates in the file to show the
+# | accounts, and also displays the account's index, so the
+# | user can select one after they've all been displayed.
+# |----------------------------------------------------
 def printAccounts(accounts):
     limit = 5
 
-    for account in accounts:
-        templates.accountDetails(account.type, account.owner, account.username)
+    for account in range(len(accounts)):
+        # |----------------------------------------
+        # | Get index to be displayed on account.
+        # |-----------------------------------
+        index = account + 1
+
+        templates.accountDetails(index, accounts[account].type, accounts[account].owner, accounts[account].username)
         time.sleep(0.1)
+
+
+# | selectAccount()
+# |-----------------------------------------
+# | Gets the index of the account that the
+# | user is wanting to view details of.
+# |---------------------------------
+def selectAccount(accounts):
+    numbers = getNumberRange(accounts)
+
+    account = inputOption("Enter the index of the account you want: ", numbers)
+    print(account)
+
+# | getNumberRange()
+# |-----------------------------------------------------
+# | Returns a list of numbers as strings based to be
+# | used when calling inputOption() as the options
+# | parameter. Bases list on the range of the
+# | accounts which are in the opened file.
+# |------------------------------------
+
+def getNumberRange(accounts):
+    numbers = list(range(len(accounts) + 1))
+    # |-------------------------------------------------------
+    # | Gets rid of the first item as indexes start counting
+    # | from zero and here the accounts are counted from
+    # | one instead, to make it easier to read for the user.
+    # |---------------------------------------------
+    numbers.pop(0)
+    strNumbers = []
+
+    for number in numbers:
+        strNumbers.append(str(number))
+
+    return strNumbers
 
