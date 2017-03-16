@@ -12,12 +12,18 @@ print(templates.greeting())
 # | Main loop for the program while running.
 # |--------------------------------------
 while True:
-    choice = helpers.inputOption(templates.mainMenu(), ['A', 'V'])
+    choice = helpers.inputOption(templates.mainMenu(), ['A', 'V', 'Q'])
 
     if choice == 'V':
         file.getAccounts()
         helpers.printAccounts(file.accounts)
-        helpers.selectAccount(file.accounts)
+        selectedAccount = file.accounts[helpers.selectAccount(file.accounts)]
+
+        templates.accountDetails(selectedAccount.type, selectedAccount.owner, selectedAccount.username)
+        keyword = input("Enter the keyword used to this account: ")
+
+        selectedAccount.decrypt(keyword)
+        print("This account's password is: ", selectedAccount.password, "\n")
 
     elif choice == 'A':
         # |------------------------------------------
@@ -32,3 +38,6 @@ while True:
         account.encrypt(key)
 
         file.addAccount(account)
+
+    elif choice == 'Q':
+        break
