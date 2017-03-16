@@ -27,13 +27,14 @@ def greeting():
 def mainMenu():
     return('Please select one of the following:\n'
            '- [A]dd a new account\n'
-           '- [V]iew existing accounts\n')
+           '- [V]iew existing accounts\n'
+           '- [Q]uit\n')
 
 # | accountDetails()
 # |---------------------------------------------------------------------------------
 # | Template to show structured layout of 'non-confidential' details of an account.
 # |-----------------------------------------------------------------------------
-def accountDetails(accountNum, type, owner, username):
+def accountDetails(type, owner, username, accountNum="="):
     print('=', accountNum, '===============================================================\n',
           type,'-', owner, '\n',
           '-----------------------------------------------------------------\n',
