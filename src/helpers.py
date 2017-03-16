@@ -46,7 +46,7 @@ def printAccounts(accounts):
         # |-----------------------------------
         index = account + 1
 
-        templates.accountDetails(index, accounts[account].type, accounts[account].owner, accounts[account].username)
+        templates.accountDetails(accounts[account].type, accounts[account].owner, accounts[account].username, index)
         time.sleep(0.1)
 
 # | selectAccount()
@@ -58,7 +58,7 @@ def selectAccount(accounts):
     numbers = getNumberRange(accounts)
 
     account = inputOption("Enter the index of the account you want: ", numbers)
-    print(account)
+    return int(account) - 1
 
 # | getNumberRange()
 # |-----------------------------------------------------
