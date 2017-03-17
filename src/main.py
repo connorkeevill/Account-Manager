@@ -1,9 +1,5 @@
 #CK
 
-
-
-
-
 from Account import Account
 from FileHandler import FileHandler
 import templates, helpers
@@ -11,6 +7,32 @@ from interface import CommandLine
 
 file = FileHandler('accounts.txt')
 console = CommandLine(file)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
