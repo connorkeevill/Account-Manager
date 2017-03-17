@@ -1,8 +1,13 @@
 #CK
 
-
-
-
+# | Note:
+# |-----------------------------------------------------------
+# | File which will 'command' the running of the program. It
+# | creates the command line and will ensure that the file
+# | and all other dependencies are acquired before being
+# | ran. Command line class is used here to make this
+# | file cleaner, and just what initiates the rest.
+# |---------------------------------------------
 
 from Account import Account
 from FileHandler import FileHandler
@@ -11,6 +16,33 @@ from interface import CommandLine
 
 file = FileHandler('accounts.txt')
 console = CommandLine(file)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
