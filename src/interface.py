@@ -1,6 +1,6 @@
 #CK
 
-import templates, helpers
+import templates, helpers, time
 from Account import Account
 
 # | CommandLine()
@@ -39,7 +39,7 @@ class CommandLine():
         elif choice == 'Q':
             self.quit()
 
-    def addAccount(self): # TO be improved ---
+    def addAccount(self):  # TO be improved ---
         type = input('Enter the type of account this is: ')
         owner = input('Enter the name of the owner of the account: ')
         username = input('Enter the username of the account: ')
@@ -51,7 +51,37 @@ class CommandLine():
         self.file.addAccount(account)
 
     def viewAccounts(self):
-        None
+        self.file.getAccounts()
+        self.printAccounts(self.file.accounts)
+
+        selectAccount = helpers.inputOption('Do you wish to select an account? (Y/N)', ['Y', 'N'])
+
+        if selectAccount == 'Y':
+            self.selectAccount()
+            #Add code for getting account password
+        elif selectAccount == 'N':
+            self.mainMenu()
+        else:
+            raise ValueError
 
     def quit(self):
         None
+
+    def selectAccount(self):
+        None
+
+    # | printAccounts()
+    # |----------------------------------------------------------------
+    # | Prints all the accounts when the user selects the 'V' option.
+    # | Uses the template in the templates in the file to show the
+    # | accounts and also determines the account's index, so the
+    # | user can select one after they've all been displayed.
+    # |----------------------------------------------------
+    def printAccounts(self, accounts):
+        for account in range(len(accounts)):
+            # |----------------------------------------
+            # | Get index to be displayed on account.
+            # |-----------------------------------
+            index = account + 1
+
+            templates.accountDetails(accounts[account].type, accounts[account].owner, accounts[account].username, index)
