@@ -1,7 +1,5 @@
 #CK
 
-import templates
-import time
 
 # | inputOption()
 # |--------------------------------------------------------------------------
@@ -29,25 +27,6 @@ def getOption(prompt):
     option.replace(" ", "")
 
     return option
-
-# | printAccounts()
-# |----------------------------------------------------------------
-# | Prints all the accoutns when the user selects the 'V' option.
-# | Uses the template in the templates in the file to show the
-# | accounts, and also displays the account's index, so the
-# | user can select one after they've all been displayed.
-# |----------------------------------------------------
-def printAccounts(accounts):
-    limit = 5
-
-    for account in range(len(accounts)):
-        # |----------------------------------------
-        # | Get index to be displayed on account.
-        # |-----------------------------------
-        index = account + 1
-
-        templates.accountDetails(accounts[account].type, accounts[account].owner, accounts[account].username, index)
-        time.sleep(0.1)
 
 # | selectAccount()
 # |-----------------------------------------
