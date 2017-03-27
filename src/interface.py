@@ -39,6 +39,12 @@ class CommandLine():
         elif choice == 'Q':
             self.quit()
 
+    # | addAccount()
+    # |----------------------------------------------------------------
+    # | Takes details of the user's new account, makes the new account
+    # | object and then uses the FileHandler object's method to add
+    # | the new account object to the file in the correct format.
+    # |--------------------------------------------------------
     def addAccount(self):  # TO be improved ---
         type = input('Enter the type of account this is: ')
         owner = input('Enter the name of the owner of the account: ')
