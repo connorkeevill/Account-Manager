@@ -27,37 +27,3 @@ def getOption(prompt):
     option.replace(" ", "")
 
     return option
-
-# | selectAccount()
-# |-----------------------------------------
-# | Gets the index of the account that the
-# | user is wanting to view details of.
-# |---------------------------------
-def selectAccount(accounts):
-    numbers = getNumberRange(accounts)
-
-    account = inputOption("Enter the index of the account you want: ", numbers)
-    return int(account) - 1
-
-# | getNumberRange()
-# |-----------------------------------------------------
-# | Returns a list of numbers as strings based to be
-# | used when calling inputOption() as the options
-# | parameter. Bases list on the range of the
-# | accounts which are in the opened file.
-# |------------------------------------
-def getNumberRange(accounts):
-    numbers = list(range(len(accounts) + 1))
-    # |-------------------------------------------------------
-    # | Gets rid of the first item as indexes start counting
-    # | from zero and here the accounts are counted from
-    # | one instead, to make it easier to read for the user.
-    # |---------------------------------------------
-    numbers.pop(0)
-    strNumbers = []
-
-    for number in numbers:
-        strNumbers.append(str(number))
-
-    return strNumbers
-

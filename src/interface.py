@@ -50,6 +50,11 @@ class CommandLine():
 
         self.file.addAccount(account)
 
+    # | viewAccounts()
+    # |---------------------------------------------------------------------
+    # | Prints all accounts and then allows the user to select an account
+    # | to get it's password, or just to return to the main menu page.
+    # |-----------------------------------------------------------
     def viewAccounts(self):
         self.file.getAccounts()
         self.printAccounts(self.file.accounts)
@@ -57,8 +62,9 @@ class CommandLine():
         selectAccount = helpers.inputOption('Do you wish to select an account? (Y/N)', ['Y', 'N'])
 
         if selectAccount == 'Y':
-            self.selectAccount()
-            #Add code for getting account password
+
+            account = self.file.accounts[self.getAccountIndex()]
+            templates.accountDetails(account.type, account.owner, account.username, '=')
         elif selectAccount == 'N':
             self.mainMenu()
         else:
@@ -67,8 +73,38 @@ class CommandLine():
     def quit(self):
         None
 
-    def selectAccount(self):
-        None
+    # | selectAccount()
+    # |-----------------------------------------
+    # | Gets the index of the account that the
+    # | user is wanting to view details of.
+    # |---------------------------------
+    def getAccountIndex(self):
+        numbers = self.getNumberRange()
+
+        account = helpers.inputOption("Enter the index of the account you want: ", numbers)
+        return int(account) - 1
+
+    # | getNumberRange()
+    # |-----------------------------------------------------
+    # | Returns a list of numbers as strings based to be
+    # | used when calling inputOption() as the options
+    # | parameter. Bases list on the range of the
+    # | accounts which are in the opened file.
+    # |------------------------------------
+    def getNumberRange(self):
+        numbers = list(range(len(self.file.accounts) + 1))
+        # |-------------------------------------------------------
+        # | Gets rid of the first item as indexes start counting
+        # | from zero and here the accounts are counted from
+        # | one instead, to make it easier to read for the user.
+        # |---------------------------------------------
+        numbers.pop(0)
+        strNumbers = []
+
+        for number in numbers:
+            strNumbers.append(str(number))
+
+        return strNumbers
 
     # | printAccounts()
     # |----------------------------------------------------------------
@@ -85,3 +121,4 @@ class CommandLine():
             index = account + 1
 
             templates.accountDetails(accounts[account].type, accounts[account].owner, accounts[account].username, index)
+
