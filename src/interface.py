@@ -60,24 +60,22 @@ class CommandLine():
     # | Prints all accounts and then allows the user to select an account
     # | to get it's password, or just to return to the main menu page.
     # |-----------------------------------------------------------
-    def viewAccounts(self):
+    def viewAccounts(self): # TO be improved ---
         self.file.getAccounts()
         self.printAccounts(self.file.accounts)
 
         selectAccount = helpers.inputOption('Do you wish to select an account? (Y/N)', ['Y', 'N'])
 
         if selectAccount == 'Y':
-
             account = self.file.accounts[self.getAccountIndex()]
             templates.accountDetails(account.type, account.owner, account.username, '=')
-
             keyword = self.getKeyword()
             account.decrypt(keyword)
             self.displayPassword(account.password)
-        elif selectAccount == 'N':
-            self.mainMenu()
-        else:
-            raise ValueError
+
+        self.mainMenu()
+
+
 
     # | quit()
     # |--------------------------------------------------------
