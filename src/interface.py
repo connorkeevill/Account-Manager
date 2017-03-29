@@ -10,7 +10,6 @@ from Account import Account
 # | periphery methods to it, which will call mainMenu() once they have
 # | ran. Only attribute needed is the file in use in that session.
 # |------------------------------------------------------------
-
 class CommandLine():
     def __init__(self, file):
         self.file = file
@@ -71,15 +70,23 @@ class CommandLine():
 
             account = self.file.accounts[self.getAccountIndex()]
             templates.accountDetails(account.type, account.owner, account.username, '=')
+
+            keyword = self.getKeyword()
+            account.decrypt(keyword)
+            self.displayPassword(account.password)
         elif selectAccount == 'N':
             self.mainMenu()
         else:
             raise ValueError
 
+    # | quit()
+    # |--------------------------------------------------------
+    # | Is called to close the program and destroy the object.
+    # |-----------------------------------------------------
     def quit(self):
         None
 
-    # | selectAccount()
+    # | getAccountIndex()
     # |-----------------------------------------
     # | Gets the index of the account that the
     # | user is wanting to view details of.
@@ -89,6 +96,18 @@ class CommandLine():
 
         account = helpers.inputOption("Enter the index of the account you want: ", numbers)
         return int(account) - 1
+
+    # | getKeyword()
+    # |--------------------------------------------------------------------
+    # | Gets the keyword for the account, and validates it with the user.
+    # |----------------------------------------------------------------
+    def getKeyword(self):
+        sure = 'N'
+        while sure == 'N':
+            keyword = input("What's the keyword for this account?")
+            sure = helpers.inputOption("Are you sure '" + keyword + "' is the correct keyword for this account? Y/N", ["Y", "N"])
+
+        return keyword
 
     # | getNumberRange()
     # |-----------------------------------------------------
@@ -127,4 +146,12 @@ class CommandLine():
             index = account + 1
 
             templates.accountDetails(accounts[account].type, accounts[account].owner, accounts[account].username, index)
+
+    # | displayPassword()
+    # |---------------------------------------------
+    # | Shows the user the password of the account,
+    # | after it has been selected and decrypted.
+    # |---------------------------------------
+    def displayPassword(self, password):
+        print('The password for this account is: ', password)
 
