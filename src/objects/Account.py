@@ -1,6 +1,7 @@
 #CK
 
-import stringHandler
+from recources import stringHandler
+
 
 # | Account() - previously Password()
 # |-----------------------------------------------------------------------------------------------------

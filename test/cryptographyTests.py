@@ -1,7 +1,9 @@
 #CK
 
 import unittest
-from stringHandler import encrypt, decrypt
+
+from recources.stringHandler import encrypt, decrypt
+
 
 class cryptograpyTest(unittest.TestCase):
 

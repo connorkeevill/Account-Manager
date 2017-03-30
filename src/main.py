@@ -9,8 +9,8 @@
 # | clean, to make it just what initiates the rest.
 # |--------------------------------------------
 
-from FileHandler import FileHandler
-from interface import CommandLine
+from objects.CommandLine import CommandLine
+from objects.FileHandler import FileHandler
 
-file = FileHandler('accounts.txt')
+file = FileHandler('../data/accounts.txt')
 console = CommandLine(file)

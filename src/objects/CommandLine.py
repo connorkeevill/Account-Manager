@@ -1,7 +1,8 @@
 #CK
 
-import templates, helpers
-from Account import Account
+import helpers
+from objects.Account import Account
+from recources import templates
 
 # | CommandLine()
 # |----------------------------------------------------------------------------

@@ -1,6 +1,6 @@
 #CK
 
-from Account import Account
+from objects.Account import Account
 
 # | fileHandler()
 # |--------------------------------------------------------------------------------------
