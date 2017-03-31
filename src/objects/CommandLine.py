@@ -55,6 +55,7 @@ class CommandLine():
         account.encrypt(key)
 
         self.file.addAccount(account)
+        self.mainMenu()
 
     # | viewAccounts()
     # |---------------------------------------------------------------------
