@@ -11,6 +11,12 @@
 
 from objects.CommandLine import CommandLine
 from objects.FileHandler import FileHandler
+from recources import templates
+import config
 
-file = FileHandler('../data/accounts.txt')
+print(templates.greeting())
+
+settings = config.getSettings()
+
+file = FileHandler(settings[2])
 console = CommandLine(file)

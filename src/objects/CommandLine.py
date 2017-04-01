@@ -15,15 +15,7 @@ class CommandLine():
     def __init__(self, file):
         self.file = file
 
-        self.greet()
         self.mainMenu()
-
-    # | greet()
-    # |---------------------------------------------
-    # | Displays message shown on opening program.
-    # |-----------------------------------------
-    def greet(self):
-        print(templates.greeting())
 
     # | mainMenu()
     # |-------------------------------------------------------------------------------
@@ -76,8 +68,6 @@ class CommandLine():
             self.displayPassword(account.password)
 
         self.mainMenu()
-
-
 
     # | quit()
     # |--------------------------------------------------------
