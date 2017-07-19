@@ -4,7 +4,6 @@ import unittest
 
 from recources.stringHandler import encrypt, decrypt
 
-
 class cryptograpyTest(unittest.TestCase):
 
     def test_simple_encryption(self):
