@@ -1,5 +1,6 @@
 #CK
 
+import hashlib
 
 # | inputOption()
 # |--------------------------------------------------------------------------
@@ -27,3 +28,16 @@ def getOption(prompt):
     option.replace(" ", "")
 
     return option
+
+# | sha1_hash()
+# |-----------------------------------------------------------------
+# | Takes a string as input, and returns it's sha1 hash. Uses the
+# | python module hashlib, and it's sha1 function. It also
+# | converts the string into a byte object and returns
+# | the hash as a hexadecimal string, with hashlib.
+# |--------------------------------------------
+def sha1_hash(string):
+    byteString = bytes(string, 'utf-8')
+    hashString = hashlib.sha1(byteString).hexdigest()
+    print(hashString)
+    return hashString

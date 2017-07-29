@@ -2,6 +2,7 @@
 
 from configparser import ConfigParser
 from recources import templates
+import helpers
 
 configFilePath = '../data/config.ini'
 
@@ -22,10 +23,17 @@ def getSettings():
         setup(config)
 
     user = config.get('user', 'name')
-    keyword = config.get('data', 'keyword')
+    master_hash = config.get('data', 'master_hash')
+    print('master hash: ', master_hash)
     filepath = config.get('data', 'filePath')
 
-    return [user, keyword, filepath]
+    print('Welcome back', user)
+    master = ' '
+
+    while helpers.sha1_hash(master) != master_hash:
+        master = input('Enter your password: ')
+
+    return [user, master, filepath]
 
 # | setup()
 # |--------------------------------------------------------
@@ -44,7 +52,8 @@ def setup(configFile):
 
     # | Get user's details
     name = input('What\'s your name? ')
-    keyword = input('What keyword do you want to use to encrypt and decrypt all your accounts? ')
+    master = bytes(input('What\'s the master password you wish to use? '), 'utf-8')
+    master_hash = helpers.sha1_hash(master)
     filepath = input("What's the filepath to the file which will contain the accounts? ")
 
     # | Prepare file
@@ -55,7 +64,7 @@ def setup(configFile):
     # | Write all details to file
     configFile.set('setup', 'firstRun', 'False')
     configFile.set('user', 'name', name)
-    configFile.set('data', 'keyword', keyword)
+    configFile.set('data', 'master_hash', master_hash)
     configFile.set('data', 'filepath', filepath)
     configFile.write(file)
     file.close()
