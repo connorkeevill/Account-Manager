@@ -1,4 +1,4 @@
-#CK
+# CK
 
 from recources import stringHandler
 
@@ -10,30 +10,30 @@ from recources import stringHandler
 # | encrypting and decrypting the password, depending on if the account is new or being re-read.
 # |-----------------------------------------------------------------------------------------
 class Account:
-    def __init__(self, new, type, owner, username, password):
-        self.type = type
-        self.owner = owner
-        self.username = username
+	def __init__(self, new, type, owner, username, password):
+		self.type = type
+		self.owner = owner
+		self.username = username
 
-        if new:
-            self.password = password
-            self.encrypted = None
-        else:
-            self.encrypted = password
-            self.password = None
+		if new:
+			self.password = password
+			self.encrypted = None
+		else:
+			self.encrypted = password
+			self.password = None
 
-        self.new = new
+		self.new = new
 
-    # | encrypt()
-    # |-------------------------------------------------------------------------------------
-    # | Calls the encrypt method from stringHandler on the password's plaintext attribute.
-    # |-------------------------------------------------------------------------------
-    def encrypt(self, keyword):
-        self.encrypted = stringHandler.encrypt(self.password, keyword)
+	# | encrypt()
+	# |-------------------------------------------------------------------------------------
+	# | Calls the encrypt method from stringHandler on the password's plaintext attribute.
+	# |-------------------------------------------------------------------------------
+	def encrypt(self, keyword):
+		self.encrypted = stringHandler.encrypt(self.password, keyword)
 
-    # | decrypt()
-    # |--------------------------------------------------------------------------------------
-    # | Calls the decrypt method from stringHandler on the password's encrypted attribute.
-    # |--------------------------------------------------------------------------------
-    def decrypt(self, keyword):
-        self.password = stringHandler.decrypt(self.encrypted, keyword)
+	# | decrypt()
+	# |--------------------------------------------------------------------------------------
+	# | Calls the decrypt method from stringHandler on the password's encrypted attribute.
+	# |--------------------------------------------------------------------------------
+	def decrypt(self, keyword):
+		self.password = stringHandler.decrypt(self.encrypted, keyword)

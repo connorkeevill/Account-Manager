@@ -1,4 +1,4 @@
-#CK
+# CK
 
 
 # | inputOption()
@@ -10,12 +10,13 @@
 # | recognised when compared to the user's inputted choice.
 # |----------------------------------------------------
 def inputOption(prompt, options):
-    option = getOption(prompt)
-    while option not in options:
-        print('Make sure your choice is one of: ', ', '.join(options))
-        option = getOption(prompt)
+	option = getOption(prompt)
+	while option not in options:
+		print('Make sure your choice is one of: ', ', '.join(options))
+		option = getOption(prompt)
 
-    return option
+	return option
+
 
 # | getOption()
 # |-------------------------------------------------------------------
@@ -23,7 +24,7 @@ def inputOption(prompt, options):
 # | uppercase and strip the whitespace to get a single character.
 # |----------------------------------------------------------
 def getOption(prompt):
-    option = input(prompt).upper()
-    option.replace(" ", "")
+	option = input(prompt).upper()
+	option.replace(" ", "")
 
-    return option
+	return option

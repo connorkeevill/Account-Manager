@@ -1,9 +1,11 @@
-#CK
+# CK
 
 from configparser import ConfigParser
+
 from recources import templates
 
 configFilePath = '../data/config.ini'
+
 
 # | getSettings()
 # |----------------------------------------------------------
@@ -13,19 +15,20 @@ configFilePath = '../data/config.ini'
 # | the config file has no relevant data in it).
 # |-------------------------------------------
 def getSettings():
-    config = ConfigParser()
-    config.read(configFilePath)
+	config = ConfigParser()
+	config.read(configFilePath)
 
-    # | If the user hasn't used the program before
-    if config.getboolean('setup', 'firstRun'):
-        print('setup')
-        setup(config)
+	# | If the user hasn't used the program before
+	if config.getboolean('setup', 'firstRun'):
+		print('setup')
+		setup(config)
 
-    user = config.get('user', 'name')
-    keyword = config.get('data', 'keyword')
-    filepath = config.get('data', 'filePath')
+	user = config.get('user', 'name')
+	keyword = config.get('data', 'keyword')
+	filepath = config.get('data', 'filePath')
 
-    return [user, keyword, filepath]
+	return [user, keyword, filepath]
+
 
 # | setup()
 # |--------------------------------------------------------
@@ -35,27 +38,27 @@ def getSettings():
 # | will be changed to indicate that it it setup.
 # |-------------------------------------------
 def setup(configFile):
-    print(templates.setup())
+	print(templates.setup())
 
-    # |-----------------------------------------------------------------------
-    # | For now I'll assume the user inputs valid data that won't need to be
-    # | edited, however this will be changed once functionality is there.
-    # |---------------------------------------------------------------
+	# |-----------------------------------------------------------------------
+	# | For now I'll assume the user inputs valid data that won't need to be
+	# | edited, however this will be changed once functionality is there.
+	# |---------------------------------------------------------------
 
-    # | Get user's details
-    name = input('What\'s your name? ')
-    keyword = input('What keyword do you want to use to encrypt and decrypt all your accounts? ')
-    filepath = input("What's the filepath to the file which will contain the accounts? ")
+	# | Get user's details
+	name = input('What\'s your name? ')
+	keyword = input('What keyword do you want to use to encrypt and decrypt all your accounts? ')
+	filepath = input("What's the filepath to the file which will contain the accounts? ")
 
-    # | Prepare file
-    file = open(configFilePath, 'w')
+	# | Prepare file
+	file = open(configFilePath, 'w')
 
-    print(configFile.sections())
+	print(configFile.sections())
 
-    # | Write all details to file
-    configFile.set('setup', 'firstRun', 'False')
-    configFile.set('user', 'name', name)
-    configFile.set('data', 'keyword', keyword)
-    configFile.set('data', 'filepath', filepath)
-    configFile.write(file)
-    file.close()
+	# | Write all details to file
+	configFile.set('setup', 'firstRun', 'False')
+	configFile.set('user', 'name', name)
+	configFile.set('data', 'keyword', keyword)
+	configFile.set('data', 'filepath', filepath)
+	configFile.write(file)
+	file.close()

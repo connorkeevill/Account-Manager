@@ -1,4 +1,4 @@
-#CK
+# CK
 
 # | Note:
 # |-----------------------------------------------------------
@@ -9,10 +9,10 @@
 # | clean, to make it just what initiates the rest.
 # |--------------------------------------------
 
+import config
 from objects.CommandLine import CommandLine
 from objects.FileHandler import FileHandler
 from recources import templates
-import config
 
 print(templates.greeting())
 

@@ -1,4 +1,4 @@
-#CK
+# CK
 
 # | encrypt()
 # |----------------------------------------------------------------------
@@ -6,22 +6,23 @@
 # | encrypted with the keyword parameter using the Vigenère cipher.
 # | ----------------------------------------------------------
 def encrypt(plainText, keyword):
-    plainTextNums = getNumericalValues(plainText)
-    keywordNums = getNumericalValues(keyword)
-    newNums = []
+	plainTextNums = getNumericalValues(plainText)
+	keywordNums = getNumericalValues(keyword)
+	newNums = []
 
-    for letter in range(len(plainTextNums)):
-        plainTextLet = plainTextNums[letter]
-        keywordLet = keywordNums[letter % len(keyword)]
+	for letter in range(len(plainTextNums)):
+		plainTextLet = plainTextNums[letter]
+		keywordLet = keywordNums[letter % len(keyword)]
 
-        newLet = plainTextLet + keywordLet
-        newLet = putInRange(newLet)
+		newLet = plainTextLet + keywordLet
+		newLet = putInRange(newLet)
 
-        newNums.append(newLet)
+		newNums.append(newLet)
 
-    newString = getAlphabeticValues(newNums)
-    encrypted = ''.join(newString)
-    return encrypted
+	newString = getAlphabeticValues(newNums)
+	encrypted = ''.join(newString)
+	return encrypted
+
 
 # | decrypt()
 # |---------------------------------------------------------------------
@@ -31,22 +32,23 @@ def encrypt(plainText, keyword):
 # | only works if it was encrypted with the Vigenère cipher.
 # |-----------------------------------------------------
 def decrypt(encrypted, keyword):
-    encryptedNums = getNumericalValues(encrypted)
-    keywordNums = getNumericalValues(keyword)
-    newNums = []
+	encryptedNums = getNumericalValues(encrypted)
+	keywordNums = getNumericalValues(keyword)
+	newNums = []
 
-    for letter in range(len(encryptedNums)):
-        encryptedLet = encryptedNums[letter]
-        keywordLet = keywordNums[letter % len(keyword)]
+	for letter in range(len(encryptedNums)):
+		encryptedLet = encryptedNums[letter]
+		keywordLet = keywordNums[letter % len(keyword)]
 
-        newLet = encryptedLet - keywordLet
-        newLet = putInRange(newLet)
+		newLet = encryptedLet - keywordLet
+		newLet = putInRange(newLet)
 
-        newNums.append(newLet)
+		newNums.append(newLet)
 
-    newString = getAlphabeticValues(newNums)
-    decrypted = ''.join(newString)
-    return decrypted
+	newString = getAlphabeticValues(newNums)
+	decrypted = ''.join(newString)
+	return decrypted
+
 
 # | getNumericalValues()
 # |-----------------------------------------------------------------------------------------------
@@ -54,13 +56,14 @@ def decrypt(encrypted, keyword):
 # | between 1 and 94, so they are easier to loop around if they become too high or too low.
 # |------------------------------------------------------------------------------------
 def getNumericalValues(string):
-    numericalValues = []
-    for letter in string:
-        numLetter = ord(letter)
-        numLetter -= 32
-        numericalValues.append(numLetter)
+	numericalValues = []
+	for letter in string:
+		numLetter = ord(letter)
+		numLetter -= 32
+		numericalValues.append(numLetter)
 
-    return numericalValues
+	return numericalValues
+
 
 # | getAlphabeticValues()
 # |---------------------------------------------------------------------
@@ -69,13 +72,14 @@ def getNumericalValues(string):
 # | its ASCII value so it will be a recognisable character.
 # |---------------------------------------------------
 def getAlphabeticValues(list):
-    alphabeticValues = []
-    for number in list:
-        number += 32
-        letter = chr(number)
-        alphabeticValues.append(letter)
+	alphabeticValues = []
+	for number in list:
+		number += 32
+		letter = chr(number)
+		alphabeticValues.append(letter)
 
-    return alphabeticValues
+	return alphabeticValues
+
 
 # | putInRange()
 # |------------------------------------------------------------------------------------
@@ -86,10 +90,9 @@ def getAlphabeticValues(list):
 # | any negative numbers, so a while loop gets used for this instead.
 # |------------------------------------------------------------
 def putInRange(number):
-    while number < 1:
-        number += 94
-    while number > 94:
-        number -= 94
+	while number < 1:
+		number += 94
+	while number > 94:
+		number -= 94
 
-    return number
-
+	return number
